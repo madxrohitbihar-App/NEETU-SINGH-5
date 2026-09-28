@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Vocabulary & Batch Index</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: rgba(22, 27, 34, 0.85);
+            --border-color: rgba(0, 243, 255, 0.2);
+            --glow-color: rgba(0, 243, 255, 0.4);
+            --text-main: #c9d1d9;
+            --text-heading: #58a6ff;
+            --accent-vid: #2ea043;
+            --accent-pdf: #f85149;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: var(--text-heading);
+            text-shadow: 0 0 10px var(--glow-color);
+            margin-bottom: 5px;
+        }
+        .dev-credit {
+            color: #00f3ff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+            text-shadow: 0 0 8px rgba(0, 243, 255, 0.3);
+        }
+        .search-container {
+            max-width: 1000px;
+            margin: 0 auto 25px auto;
+            text-align: center;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: rgba(13, 17, 23, 0.9);
+            color: #ffffff;
+            font-size: 1rem;
+            outline: none;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        #searchInput:focus {
+            border-color: rgba(0, 243, 255, 0.8);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            gap: 15px;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: rgba(0, 243, 255, 0.8);
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+        .card-header {
+            padding: 18px 20px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #ffffff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .card-header::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: var(--text-heading);
+            transition: transform 0.3s ease;
+        }
+        .card.active .card-header::after {
+            content: '-';
+        }
+        .card-content {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            border-top: 1px solid transparent;
+        }
+        .card.active .card-content {
+            max-height: 2500px;
+            padding: 20px;
+            border-top-color: rgba(255, 255, 255, 0.05);
+        }
+        .links-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        a {
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            display: inline-block;
+            transition: opacity 0.2s;
+        }
+        a:hover {
+            opacity: 0.85;
+        }
+        .btn-vid {
+            background-color: var(--accent-vid);
+            color: white;
+        }
+        .btn-pdf {
+            background-color: var(--accent-pdf);
+            color: white;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <p>All VOD streams and corresponding notes/PDFs mapped sequentially.</p>
+        <div class="dev-credit">⚡ Developed By MadxrohitBihar ⚡</div>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="🔍 Search topics (e.g. Synonyms, Antonyms, OWS, Spellings)..." onkeyup="searchTopics()">
+    </div>
+
+    <div class="container" id="topicsContainer">
+
+        <!-- Item 1 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">1. TOPIC-IDIOMS & PHRASES [PART-1 ]</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_43_NS_ENG_P1_8OCT23.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=Vd3Fy8ezdwITI-R4I0mGMcSX_-7K7orSgmV5TdVub8U=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Video Stream (Part 1)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">2. TOPIC-IDIOMS & PHRASES [PART-2 ]</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_43_NS_ENG_P2_8OCT23.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=fS8K-TFbvKzCmK3Duw2YYLwpJ4kDAZ5o-JQ9Y_fkigY=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Video Stream (Part 2)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">3. TOPIC-HOMONYMS & VISUAL & IDIOMS CLASS 2</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_39_NS_ENG_P1_23NOV23.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=5wpqWsdx1TiHG7vdcu-gkzYiuybSmJvT3aLLwx_W8cU=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Video Stream (Homonyms)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/3—_VISUAL_VOCAB_2_20231010055918.pdf" class="btn-pdf" target="_blank">📄 PDF: VISUAL & IDIOMS CLASS 2 AND HOMONYMS</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/HOMONYMS_(2)_20231010060035.pdf" class="btn-pdf" target="_blank">📄 PDF: HOMONYMS</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">4. Topic- STORY - FABLES & PARABLES (Part 01 & 02)</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_SSC_ENG_ENG_P1_22JULY.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=MWbKENsfyYM4t32YgQSvkwN6_0ox6KcIU0O4qyRGE7k=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Video Stream (Fables Part 01)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_SSC_ENG_ENG_P2_22JULY.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=fGcqAHp94tQVc_5YBtdFaqu0XKacNBhTOLQNbkDimHY=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Video Stream (Fables Part 02)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Fables_&_Parables_20240131093521.pdf" class="btn-pdf" target="_blank">📄 PDF: FABLES & PARABLES</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">5. Topic- STORY - NIPPED IN THE BUD (Part 01 & 02)</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_SSC_ENG_ENG_P3_22JULY.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=JDnIzGYHiU8kG9_iSHWqvA8e_88D8s6-Y4Jcgg3yhl4=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Video Stream (Nipped in the Bud Part 01)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_SSC_ENG_ENG_P4_22JULY.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=jhVFWWfOpJorDAkTc884hC5qbb8mjF7xDpjW7OQonWA=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Video Stream (Nipped in the Bud Part 02)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Nipped_in_the_Bud_20240131094057.pdf" class="btn-pdf" target="_blank">📄 PDF: NIPPED IN THE BUD</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">6. Topic-STORY - RISE OF THE PHOENIX (Part 01 & 02)</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_30_NS_ENG_P1_25NOV22.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=Jzxl0S5831Uiw8B7R4Qp5kMfmBD5og_rX4OPdrverMU=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Video Stream (Rise of the Phoenix Part 01)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_30_NS_ENG_P2_25NOV22.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=757KJyfvUYWyh9A53yNcbciFOGs4kJHmSlqQnMcjqJg=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Video Stream (Rise of the Phoenix Part 02)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Rise_of_the_Phoenix_20240131093704.pdf" class="btn-pdf" target="_blank">📄 PDF: RISE OF THE PHOENIX</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 7 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">7. Topic- STORY - SWEAT OF THE BROW (Part 01 & 02)</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_SSC_ENG_ENG_P5_22JULY.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=JN3fwOafDe3MUdzAnXIrYnWfq60ZWiujAbn4n_KSP9M=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Video Stream (Sweat of the Brow Part 01)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_SSC_ENG_ENG_P6_22JULY.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=dQyf4-PV2pYgU6BJrvRLoxXJOOyJY8faHi0aeIrx2hs=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Video Stream (Sweat of the Brow Part 02)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Sweat_of_the_Brow_20240131093805.pdf" class="btn-pdf" target="_blank">📄 PDF: SWEAT OF THE BROW</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 8 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">8. Topic- STORY- CATCH 22 SITUATION (Part 01 & 02)</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_30_NS_ENG_P1_29NOV22.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=SfMeQ6AD-tOolSSQHX-lWLuA3Dsb2v0uIZz7S7PYc9c=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Video Stream (Catch 22 Part 01)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_30_NS_ENG_P2_29NOV22.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=6l5wcqobsW4LOzwHyKsnvvfrbPud-yzRh2ZlPycd0PA=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Video Stream (Catch 22 Part 02)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Catch_22_Situation_20240131093900.pdf" class="btn-pdf" target="_blank">📄 PDF: CATCH 22 SITUATION</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 9 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">9. Topic- STORY - THE FAIR SEX (Part 01 & 02)</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_30_NS_ENG_P1_15DEC22.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=MnVx13ewT6ZLSPdi3isvp3J64Gr_MYtb18LK9TumMKM=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Video Stream (The Fair Sex Part 01)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_30_NS_ENG_P2_15DEC22.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=YrK2jriwlkjOXyJe4ZOBC4LenvgBDUfKq8vKdc7ktDc=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Video Stream (The Fair Sex Part 02)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/The_Fair_Sex_20240131093204.pdf" class="btn-pdf" target="_blank">📄 PDF: THE FAIR SEX</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 10 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">10. GIF VOCAB Classes (01 to 05)</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_20_NS_ENG_P1_13NOV.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=RFs2Owkwj9NbNf4EMhB2stY8OsXIVnGbtcmdsLHif_Y=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch GIF VOCAB 01</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_20_NS_ENG_P2_13NOV.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=stCCgjH5959idfS6osb5tp-FS0xbM7HFx3i5tFOdbE8=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch GIF VOCAB 02</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_14_NS_ENG_P1_12NOV.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=JDDgaYobhauWtoQstw_Zzm_uX79KfaIh8PFOK59HEVs=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch GIF VOCAB 03</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_20_NS_ENG_P4_13NOV.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=fDhuKoba7D2U9csMBBJECV1oKxcd0BtHnUwvQrznHn4=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch GIF VOCAB 04</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_20_NS_ENG_P5_13NOV.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=YGekAO6t4hG-oHUMUwhJCiVqEEERrPB9v939YCfvFZw=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch GIF VOCAB 05</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/GIF_VOCAB_01_20231121015350_20240813104641.pdf" class="btn-pdf" target="_blank">📄 PDF: GIF VOCAB 01</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/GIF_VOCAB_02_20231121015507_20240813104911.pdf" class="btn-pdf" target="_blank">📄 PDF: GIF VOCAB 02</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/GIF_VOCAB_03_20231121015613_20240813105527.pdf" class="btn-pdf" target="_blank">📄 PDF: GIF VOCAB 03</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/GIF_VOCAB_04_20231121015706_20240813105745.pdf" class="btn-pdf" target="_blank">📄 PDF: GIF VOCAB 04</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/GIF_VOCAB_05_20231121015755_20240813105936.pdf" class="btn-pdf" target="_blank">📄 PDF: GIF VOCAB 05</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 11 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">11. SSC CGL TIER-1 2023 Visual Idioms & Phrases</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_40_NS_GRAM_P1_7JAN24.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=N3WPCHRJfYeDF4hbeOA1iaH6zw4Nt2e2r_L7v_P-sho=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Visual Idioms & Phrases Video (Class 40)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_42_NS_GRAM_P1_9FEB24.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=BlIBD5pqCL1Jg5lIimEDDqDLd3TIkSsVFlVerXNc7dw=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Idioms & Phrases Video (Class 42)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/6—_SSC_CGL_TIER-1,_2023,_IDIOMS_&_PHRASES____Visual_Vocab_(2)_20240107054918.pdf" class="btn-pdf" target="_blank">📄 PDF: SSC CGL TIER-1, 2023 IDIOMS & PHRASES VISUAL VOCAB (1)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/SSC_CGL_TIER-1,_2023,_IDIOMS_&_PHRASES____Visual_Vocab_20240209031405.pdf" class="btn-pdf" target="_blank">📄 PDF: SSC CGL TIER-1, 2023 IDIOMS & PHRASES VISUAL VOCAB (2)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 12 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">12. Synonyms Master Classes (Class 1 to 23 Complete)</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_SY_VOL_NS_ENG_P1_05JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=hdikITLaruPkeKg66bLoIfQ5VZIjgWipfUoxfBQwlHM=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 1 (1-20)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_SY_VOL_NS_ENG_P2_05JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=U9zbdXfpdGYPT6-iT1iE6W2V6qAPXNZ0E85U8F_cST0=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 2 (21-40)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_SY_VOL_NS_ENG_P3_05JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=cbe9-vmu2XbKNNAI5nBeHTrbqZdkS1mXfStgMitlnDg=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 3 (41-55)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_SY_VOL_NS_ENG_P4_05JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=crFEHMG9jDFwjSJxgFljY2oPNPBSnX5iO6YwuUfFGfU=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 4 (56-70)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_SY_VOL_NS_ENG_P5_05JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=tQrxz_HDGrTtmQkHsqOFQYt6NJt27esu-zNUVvzruyQ=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 5 (71-85)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_SY_VOL_NS_ENG_P6_05JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=DK0neV9TtSDFVzHjK7OFGuApVpyZ-qAHyPPDJx34joI=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 6 (86-95)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_NS_ENG_P1_7MAR.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=N6JfLuzBvYQfy-GpOIzowdTP2UrvhVcazM-xSjEkLiU=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 7 (96-115)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_NS_ENG_P1_25MAR.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=MkIzAebl9h83fP_n4RQlKkGn2UBtc1jC-bcWik2X0fw=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 8 (116-140)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_NS_ENG_P1_4APR.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=-lEJZhu4lssWJbVRV1tAvl4KMI34o9ftxVzhAiITnPI=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 9 (141-160)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_NS_ENG_P1_23MAY.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=fxGnj7i1FRS_rVipMR-GtGaMAc8sxTY-x_Mj_AnUKFQ=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 10 (161-170)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_NS_ENG_P1_15JULY.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=wPlrqIk6boUkIAv61LleqCIZK2nSTmkbeB9OvvHipY0=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 11 (171-177)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_NS_ENG_P1_21JULY.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=QEReCl4oHUidEv9agGHDH-yEeDkrnhZAKE9_8LNqe28=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 12 (178-182)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_NS_ENG_P1_22NOV22.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=k3XsJoh2F4HrodONMo1Ld-S2ATQo-oq4cwo4YwuTmiM=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 13 (183-195)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_NS_ENG_P1_6MAR23.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=tyfDTIjgNuY52w_IP94_sJEY3pxmedeg0z-2qcIG4vc=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 14 Part 01 (196-199)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_NS_ENG_P2_6MAR23.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=mrDadjCWXJgodar87f03KqONRnvjnke5EQlf4Sw5LIw=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 14 Part 02 (200-205)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_NS_ENG_P1_7MAR23.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=ZO6MMA2FWrrrSmSyYjH5Jsy_G8HDf1oDTlRRAy_rqjA=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 15 Part 01 (206-209)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_NS_ENG_P2_7MAR23.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=0xC3HoR9qiGfe75rXNEKPoi3Rd9wX3IKBypcaU8Zfgw=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 15 Part 02 (210-212)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_NS_ENG_P1_11MAR23.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=MumqWnc3MSZMN81MxKUF54Hn_b-UQtvewgbYyHpV6yc=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 16 Part 01 (213-215)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_NS_ENG_P2_11MAR23.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=zqlUTnCUcO4i4Af-GG0lXzw_ugWwXH8UnTv60pJPcBo=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 16 Part 02 (216-220)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_NS_ENG_P1_17MAR23.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=Iw4bkoAZN3tEbUa-THtG8nZ4Vc0S_qdb7w1F2kM_DqA=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 17 (221-225)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_31_NS_ENG_P1_4JUNE23.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=Fou8x3Fg-InWW7mrntibSxf5kaO2Vx3s9ivFtb3YhdQ=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 18 (226-230)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_ENG_NS_P1_1APR23.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=nQywezrOBVZb7LaIOiddf0rfY4dnZbF-6rXs6rail30=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 19 (231-236)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_ENG_NS_P1_21APR23.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=V3AvaZ86uClab6ZBQ9mVlkD_MKGo3zjmTo3X9i6Fbhw=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 20 (237-245)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_ENG_NS_P1_21JUNE23.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=X4Bl5JnTJeHZvwdEpPsx8F2xrRM8PkHtxERGbbMdch8=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 21 Part 01 (246-255)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOL1_ENG_NS_P1_26JUNE23.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=OHIjX3OhZXeIlfTPon18cajbsn9GEnLJoPnhAJqt8N4=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 21 Part 02 (256-257)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_46_NS_GRAM_P1_01MAR24.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=xHODZ_MGWv9c3ZxL9XW8n6B0moFr8HZf047J88JN0Kc=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 22 (258-263)</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_46_NS_GRAM_P1_05MAR24.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=EhHU3Z46p1cvQHNxZ5xm7V9z2FwHNVKTWm7JyGDj8Ek=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Synonyms Class 23 (264-267)</a>
+                    
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_____-27__Synonyms_(1-195)_20221122100903.pdf" class="btn-pdf" target="_blank">📄 PDF: SYNONYMS (01-195)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/synonyms_196-213_20230428042441.pdf" class="btn-pdf" target="_blank">📄 PDF: SYNONYMS (196-213)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_____-27__Synonyms_(214-236)_(1)_20240402103936.pdf" class="btn-pdf" target="_blank">📄 PDF: SYNONYMS (214-236)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_____-27__Synonyms_(237-245)_20240402104512.pdf" class="btn-pdf" target="_blank">📄 PDF: SYNONYMS (237-245)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_____-27__Synonyms_(246_to_257)_20240402105036.pdf" class="btn-pdf" target="_blank">📄 PDF: SYNONYMS (246-257)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Synonyms_258_-_267_20240402115159.pdf" class="btn-pdf" target="_blank">📄 PDF: SYNONYMS (258-267)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_____-27__Synonyms_(258_to_267)_20240301054446.pdf" class="btn-pdf" target="_blank">📄 PDF: SYNONYMS (258-263) HAND WRITTEN</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 13 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">13. Antonyms (Classes & Complete Sheets)</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_50_NS_GRAM_P2_19MAR24.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=Ee0uWC8jn2RmYzpRcmDjKRYFEz5GxkRHJqJxgxFiWv4=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (1-8) Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_44_NS_ANTON_P1_22MAR24.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=FYSL5cIiCGlVT1-LhUsNqfxrJZhRHeg-j42Yo-J6nFw=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (9-14) [Class 2] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_46_NS_GRAM_P1_01APR24.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=vXPuJrlE1vc45WySlphpzLytV0UE-BsYDtquKT8Mn0I=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (15-20) [Class 3] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_47_NS_GRAM_P1_07JUNE24.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=bD1gv162l608jAWQ5qTUEXc_TXnWuTZDW-Ca8FzTJVs=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (21-30) [Class 4] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_40_NS_GRAM_P1_28JUNE24.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=Crzd5U59nt9BWF40YVvnvWpq4i7dcPLPhMpgFnJTHA4=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (31-40) [Class 5] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_06MAY25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=afxqi0rCMISBU2KVy81up44AnD3rjpvVWQjyS21KbfY=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (41-45) Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_09MAY25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=Di3TILYs2YYGY7MYnM02K-wiZevCMYwOKm1AMMY8u4M=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (46-55) Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_15MAY25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=g8gQKmLqZyl507p638wVwDwbkrXnGMrrNHyv6IItvNA=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (56-65) [Class 08] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_16MAY25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=Zcr63aIMwzttAhMZFDDsVmLrz9-ZuhTIh2aMIG8gBZI=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (66-75) [Class 09] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_24MAY25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=XxilELvBX0L3c_zV5EYw0iey8PxUC_6FK8AJ4nRkCOI=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (76-85) [Class 10] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_29MAY25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=HqXOa6IU-g6MFgRHnOGURazP9gLj1eB-InVWCQHoZEE=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (86-95) [Class 11] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_31MAY25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=QDl9iXY2h6WjJXg7QjO70mxClbr2YpdrjsFIPG9Mh68=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (96-105) [Class 12] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_05JUNE25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=hTDbV8iCBF0edZTu4weT16-3EOpoUzSuBjCia3GbZec=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (106-115) [Class 13] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_06JUNE25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=C0l0EBtg6RteomtsyylIWmjdA0WOEoCjFuAQtaJr-nE=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (116-125) [Class 14] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_13JUNE25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=2KGiM_yvMlAdCIfJs7mhgXgy0-vvnivWOLrXwY3C4Z4=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (125-130) [Class 15] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_04JULY25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=hk66u4_ueZzCWFnrhfHA6nywGsRQRKLCAg8Dr8PEkDc=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (131-135) [Class 16] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_15JULY25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=d-v-ywxbXhnSgMho8eARxR7NJucT5EsrdSRCzbtYhuM=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (136-145) [Class 17] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_05SEP25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=lwO-eNrEfBqCiCiAMkXMzaSFUO1WzIX9gii39AX4OnQ=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (146-155) [Class 18] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_70_GRAM_NS_P1_14NOV25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=VeGSbHjpYA2GqRcnPFdCZigeLRPyesMRDn7Sk5FlYuE=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (156-165) [Class 19] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_70_GRAM_NS_P1_01DEC25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=GiMhM1U9lGDrJO-hd3iRVbX3Qr_zo5NMzr645tK8UU0=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (166-175) [Class 20] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_70_GRAM_NS_P1_10DEC25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=KimE94MdxuHDiHDWlefYBmkAuJllsjTz5YvDuDr0UF4=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Antonyms (176-185) [Class 21] Video</a>
+
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_____-28__Antonyms_(1-8)_Vol_1_20240319032136.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (1-8)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_____-28__Antonyms_Vol_1(9-14)CLASS_02_(1)_20240322054643.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (9-14)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_____-28__Antonyms_Vol_1__(15-20)_20240401053903.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (15-20)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_-28_Antonyms_Vol_1_21_TO_30_20240608075116.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (21-30)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_-28_Antonyms_Vol_1_(31_TO_40)_(1)_20240630030955.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (31-40)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Antonyms_(_41_to_45)_20250506045623.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (41-45)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_____-28__Antonyms_Vol_1(41-45)_20250509040718.pdf" class="btn-pdf" target="_blank">📄 PDF: ANTONYMS (46-55)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/antonyms_56-65_20250515033958.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (56-65) Hand Written</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Vol-1_Antonyms_(66_to_75)_hand_written_20250516032913.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (66-75) Hand Written</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Antonyms_(76-85)_HAND_WRITTEN_20250524041957.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (76-85) Hand Written</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter-28__Antonyms_Vol_1_(86-95)_20250529031123.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (86-95) Hand Written</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter-28__Antonyms_Vol_1_(96-105)_20250531043424.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (96-105) Hand Written</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter-28__Antonyms_Vol_1_(106-115)_20250605044842.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (106-125) Hand Written</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_____-28__Antonyms_Vol_1_(116-125)_20250606041524.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (116-125) Hand Written</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_-28_Antonyms_Vol_(Page_126___130)_20250614085154.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (125-130) Hand Written</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_-28_Antonyms_Vol_(Page_131___135)(2)(1)_20250704033024.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (131-135) [Class 16] Hand Written</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_-28_Antonyms_Vol_(Page_136___145)(2)_20250715050217.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (136-145) [Class 17] Hand Written</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/ANTONYMS_(_146-155_)_HAND_WRITTEN_CLASS_18_20250905032342.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (146-155) Hand Written Class 18</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/ANTONYMS_(_146-155_)_CLASS_18_20250905032610.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (146-155) Class 18</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/ANTONYMS_(_146-155_)_HAND_WRITTEN_CLASS_18_20250908022304.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (146-155) Hand Written Class 18 (Alt)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_-28_Antonyms_Vol_1_(156-165)_-_(1)_20251115083505.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (156-165) [Class 19]</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_-28_Antonyms_Vol_1_(166-175)_20251202075002.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (166-175) [Class 20]</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_-28_Antonyms_Vol_1_(176-185)_20251211071518.pdf" class="btn-pdf" target="_blank">📄 PDF: Antonyms (176-185) [Class 21]</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 14 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">14. Legal Terms & Specialized Vocabulary (01 to 20)</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_NS_GRAM_P1_23JUNE24.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=SqvDoGKmbauKcQnWR86vgLPM2Jft3qfX90ia-BJvN6g=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Watch Legal Terms Class Video</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Legal_Terms_(1)_20240626054325.pdf" class="btn-pdf" target="_blank">📄 PDF: LEGAL TERMS</a>
+                    
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P1_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=C6YPkQxHSvjLQnNTyUq2-l9AKlapO_XH0A_b88h5jsU=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-01 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P2_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=GedYX4CTldc34j3Q1-b-ANbYV1XLRtuUvC4y9eHSkx8=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-02 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P3_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=dZxo-ltdDIS-xIhbBm88TYJVyD8zFP5GYFQjPT2_YD4=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-03 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P4_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=Nr6BgpkEwSiqvZAoL6oDXcfgAB_PJD2Q6xzx4TGBHSw=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-04 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P5_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=ryx3_ddF06AprpuUvVAqMjmmIfX_fRF_vs1ZCqX_0io=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-05 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P6_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=uCzhhOUjJLsZSdrOJnfiPFhtcWlQWvDa7U4d1nVi9sM=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-06 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_50_NS_GRAM_P1_23JUNE24.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=IeHX1GakX27oIefXDZXCNZETrHENnfb6oZUpfcrsyZM=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-07 (PART 01) Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_50_NS_GRAM_P2_23JUNE24.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=Vtw16WeB3nd47Y6lkXbMManmCmaQhqVTi9_7aukP92s=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-07 (PART 02) Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P8_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=iT4BSvXZ9NFUi12sfaKXXuZLZ_ErckOM0dus1sC78zA=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-08 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P9_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=B8jbS7pl16rCA--dPinVjrRP_1Ikdf2H1NT_il5BsG4=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-09 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P10_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=C5uiSpEvBn4uCbyFelIOrCOg27AzKg8cY98b1L-lu7s=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-10 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P11_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=FUkIOUWqHxJFvdAByeRhFqTU69NbGd9s4GfDqtav5q4=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-11 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P12_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=GkJHRucCX3J1MLNUQPDz92uDrs2--gcj0c3Ud7SzfLM=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-12 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P13_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=S7vQK_FIF-zTgqj5aHqvXXCER6-CdWHR_eMtaOelDm0=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-13 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P14_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=axCPsnULXVzdWL0pEn4tXDvHSBPBdIeu4Jw7v1bSt6s=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-14 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P15_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=zFyMTmqZRDr-Hh0-fPa8eZdHqdiLTxNJHQA3WWSICeQ=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-15 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P16_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=INku0h5XT2zrnpsUOP8sKUxBiLF-6BehLXUZdqNVEpA=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-16 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P17_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=kfyrv0GV_2YMTPjQiayzXSDPv7D8ibSea3La7bh6cOQ=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-17 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P18_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=v0-BVyCa59ALToD8C92UlL2_pODkbBgDDOgu0cpA9vY=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-18 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P19_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=jXuHuJw1LKZDhLSPuaM346i_0J-sZygDtMXwJD8YBAc=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-19 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_VOCAB_VOD_NS_ENG_P20_12JAN.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=5W4fc7i5DtNoz2EJkBotNXQmtR_w4TBfLjyxh737hD0=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 VOCABULARY-20 Video</a>
+                    
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_(1)-_Vocab_OWS_&_Idiom_final_(1)_20230528083953_20231217101430.pdf" class="btn-pdf" target="_blank">📄 PDF: VOCAB (1-20) SHEETS</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/VOCAB_1_TO_20_SHEET_HAND_WRITTEN_NOTES_20240103071745.pdf" class="btn-pdf" target="_blank">📄 PDF: VOCAB 1 TO 20 SHEET HAND WRITTEN NOTES</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 15 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">15. Chapter-13 One Word Substitution (Classes 01 to 17 & Full PDFs)</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_27DEC24.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=BHSV_-8zj3WvOS9OKNG8XqU4YbAFGvrNnn_pPCsAo2o=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 01 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_03JAN25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=6L-2HXhnwEsJ18kVSIfM2SSIR0pN0md3dyFfo1jPNY0=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 02 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_17JAN25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=qA0at98Zvpsq1gXdQ3rDKh90Flh4mbkXl1ByCB01a-0=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 03 [Part 01] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P2_17JAN25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=GT3-xxqGbOcgAKSot-_f7ty8Lm30-JcUT9Sa3vZ8TFg=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 03 [Part 02] Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_24JAN25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=nC8xcMvTbD4-wzgnjvMpTA5PePj3aW7BtyvuK2N0M5Q=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 04 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_31JAN25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=IL_BKyLoRRB-rkdyOA-eTaubnrnPIzTYmEh0WMfGDXc=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 05 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_07FEB25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=A_VdB2sZpewvdNotis53vyLslwKUnGI3HFJO958zvHA=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 06 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_14FEB25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=Rdj5dT2IKiOvGe4Ux21aklcgz8elNXO8eEbDXDq7WNQ=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 07 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_21FEB25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=B6QjdZaBPpAFIZFC3jexOPVB6jkg5bidOCGIS9_IT8M=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 08 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_28FEB25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=T8OWY21OTS_N10-Sg0hKdNp1xRDWMIFNmR6wDmKE6L8=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 09 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_08MAR25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=L7n9J8BMdgzWN2tOwDFGFT9f3iDQimmRkY4X7IayCH4=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 10 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_21MAR25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=ghb7eDsE_UMIO7vj981uld8U2lhT73i40Pddht5xnQY=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 11 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_28MAR25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=1Cb8X4jK3_gI4VkitEAOVWyuN_iZYC6fQSsGZ0LORqg=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 12 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_04APR25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=uwNk499lidEzz7gb5LrwJrwq3h08j6ch4kUjMLmR1Q8=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 13 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_11APR25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=1wpAp2jZK3bOobzQReuUbz7YQxLBWxLatZt3l6YeZSw=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 14 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_19APR25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=os_H6C6xUtLPhI_f37ccIMpqDwNsfgK01aRtBGwvOmM=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 15 (Part 01) Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_20APR25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=sGUD-VYLWYvvkWjSyA3JE5fuI-VCUYjRe9IDW3KxLnw=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 15 (Part 02) Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_27APR25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=pZy3JFLStUvjUrkhLgYPVufBp6niazyQxjYYPN4a-Co=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 16 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVBO_NS_P1_02MAY25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=C4eGrRfEq2dFYaUJBW5nq_7boKHtwU3Fhl6PBdIZqqY=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 OWS Class 17 Video</a>
+
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution_20241227031028.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (1-100)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution_CLASS_02_(101-200)-6-32_20250103034102.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (101-200)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution(4)_20250117033426.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (201-299)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution(5)_20250124031719.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (300-400)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution(6)_20250131032953.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (401-500)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution(7)_20250207030119.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (501-600)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution(8)_20250214030714.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (601-700)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution(9)_20250221030746.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (701-800)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution(10)_20250228030748.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (801-900)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution(11)_20250308025518.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (901-1000)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution(12)_20250321031854.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (1001-1100)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution(12)-1_20250328030157.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (1101-1200)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution(12)_(1)_20250404051805.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (1201-1300)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution(12)_(2)_20250411043151.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (1301-1400)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution(1401-1500)_20250420040549.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (1401-1500)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution(1501-1600)_20250427031205.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (1501-1600)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH_13_One_Word_Substitution(12)-2_20250502032402.pdf" class="btn-pdf" target="_blank">📄 PDF: OWS (1601-1698)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 16 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">16. Visual Idioms & Previous Year Classes</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVIVOC_NS_P1_29APR25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=cmheIV_jWXbSNRedLa4JVB-IaNS0gU2EQQRACnCxQFw=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Visual Idioms Class Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_45_VOVIVOC_NS_P1_01MAY25.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=mv8mrKH-HEQMCfu7nGnC_Kg_qg3IynOhg6T8n43weic=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 Visual Idioms Previous Year Video</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/VISUAL_IDIOMS_20250429042141.pdf" class="btn-pdf" target="_blank">📄 PDF: VISUAL IDIOMS</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CLASS_44_Most_common_idioms_asked_in_ssc_exams_01-05-2025_20250501042840.pdf" class="btn-pdf" target="_blank">📄 PDF: VISUAL IDIOMS PREVIOUS YEAR</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 17 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">17. Spellings Classes & Complete Chapter</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG8_ENG_P1_24SEP.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=0MgyZXGmWq-sRc8sVENv_HM5wriyFjxVp-AVFc_FDCE=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 SPELLINGS 01 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG8_ENG_P2_24SEP.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=lErR_j74xCPKvCkjoN4Ro_pN4QBEotJR5k1CPor9aJo=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 SPELLINGS 02 Video</a>
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG8_ENG_P3_24SEP.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=Ghs-mvrBjwBmQ3qZlO3kJso0fqYP5N4P12fcl8GWDnY=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 SPELLINGS 03 Video</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/Chapter_-_29__SPELLINGS_(1)_20220908035231_20221221090416.pdf" class="btn-pdf" target="_blank">📄 PDF: SPELLINGS</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 18 -->
+        <div class="card">
+            <div class="card-header" onclick="toggleCard(this)">18. Proverbs Master Class & Complete Book Sets</div>
+            <div class="card-content">
+                <div class="links-group">
+                    <a href="https://689dfa6beb89c.streamlock.net/kdlivevod/mp4:KD_ENG_NS_ENG_P1_30DEC.mp4/playlist.m3u8?hacktokenendtime=1790533181&hacktokenhash=xfrP8pZs-PWSoDt7Dtmng-KHFiA5iZkJl70rN5xzTVg=&hacktokenstarttime=0" class="btn-vid" target="_blank">🎬 PROVERBS Video</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/5—_VISUAL_PROVERB___(1-44_CLASSNOTES)_20231106054420_20260910125702.pdf" class="btn-pdf" target="_blank">📄 PDF: PROVERBS (1-44 Classnotes)</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/PROVERBS___CLASS_NOTES_BOOK_(1)_20260910011118.pdf" class="btn-pdf" target="_blank">📄 PDF: PROVERBS COMPLETE</a>
+                    <a href="https://kdcampus.live/uploaded/content_data/CH-69___Proverbs___2025_20260910012113.pdf" class="btn-pdf" target="_blank">📄 PDF: PROVERBS (1-77)</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Developed By <strong>MadxrohitBihar</strong> &copy; 2026</p>
+    </footer>
+
+    <script>
+        // Accordion Function
+        function toggleCard(header) {
+            const card = header.parentElement;
+            const isActive = card.classList.contains('active');
+            
+            // Close all cards first
+            document.querySelectorAll('.card').forEach(c => {
+                c.classList.remove('active');
+            });
+
+            // If clicked card wasn't active, open it
+            if (!isActive) {
+                card.classList.add('active');
+            }
+        }
+
+        // Live Search Function
+        function searchTopics() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByClassName('card-header')[0].innerText.toLowerCase();
+                if (title.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
